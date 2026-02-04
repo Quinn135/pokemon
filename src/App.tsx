@@ -421,7 +421,7 @@ export function App() {
         <>
           <div className="h-10 p-4 mb-4 flex flex-row w-full justify-between">
             <span className={gameOver ? "text-red-500" : ""}>
-              {gameOver ? "Game over!" : `It is currently ${lineups[turn][currentPokemons[turn]].name}'s turn`}
+              {gameOver ? "Game over!" : `It is currently player ${turn + 1}'s turn (${lineups[turn][currentPokemons[turn]].name})`}
             </span>
             {/* <Button variant={"destructive"} className="cursor-pointer" onClick={() => {
               setResetDialogOpen(true);
@@ -437,6 +437,7 @@ export function App() {
                   <div key={pIndex} className={cn("sm:row-start-2 sm:col-span-1 p-4 flex flex-col h-fit min-h-full items-center", border ? "border-r" : "")}>
                     <Card className="flex flex-col max-w-125 min-w-60 overflow-hidden">
                       <CardHeader>
+                        <span className="text-lg">Pokemon {currentPokemons[pIndex] + 1} / 4</span>
                         <img src={p.img} alt={p.name} className="h-40" />
                         <CardTitle className={cn("text-lg", hps[pIndex] <= 0 ? "text-red-500" : "")}>
                           {p.name} <span className="text-sm font-normal">({p.type})</span>
